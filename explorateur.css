@@ -1,0 +1,47 @@
+
+.w100ps{
+    width: 100%;
+}
+.h100vh{
+    height: 100vh;
+}
+.h100p{
+    height: 100%;
+}
+.box{
+    background-color: black;
+    border: 5px rgb(47, 0, 255) solid;
+}
+
+.gauche{
+    width: 20%;
+    border: red 5px solid;
+    color: white;
+}
+
+.droit{
+border: rgb(10, 148, 14) 5px solid;
+color: white;
+}
+
+p{
+    background-color: rgb(100, 93, 0);
+    padding: 15px;
+}
+
+li{
+    list-style: none;
+<<<<<<< HEAD
+}
+
+.image{
+    height: 50px;
+    width: 50px;
+}
+
+.balises{
+color: red;
+
+=======
+>>>>>>> 6fef3f86f2fdc83d8df4e0cf33bac1e19c874c09
+}
