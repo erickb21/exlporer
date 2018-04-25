@@ -92,10 +92,6 @@
 
          <?php 
 
-/* listage des dossiers */
-
-
-/* lien sur la racine */
 
 
 ?>
