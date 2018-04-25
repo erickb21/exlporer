@@ -29,19 +29,11 @@ p{
     padding: 15px;
 }
 
-li{
-    list-style: none;
-<<<<<<< HEAD
+a{
+text-decoration: none;
 }
 
-.image{
-    height: 50px;
-    width: 50px;
-}
-
-.balises{
-color: red;
-
-=======
->>>>>>> 6fef3f86f2fdc83d8df4e0cf33bac1e19c874c09
+.point{
+font-size: 30px;
+color: chartreuse;
 }
