@@ -1,104 +1,119 @@
 <?php
-    $base_url = "./";
-	if (isset($_GET['dossier'])) {
-		$base_url = $base_url.$_GET['dossier'];
-	}
-    $dirs = array_diff(scandir($base_url), array('.','.git','.explorateur_php','.index.php')); 
-    
-    ?> <!-- scandir — Liste les fichiers et dossiers dans un dossier // Ici on supprime le '.' qui représente le dossier présent -->
+$base_url = "./";
+if (isset($_GET['dossier'])) {
+    $base_url = $base_url.$_GET['dossier'];
+}
+$dirs = array_diff(scandir($base_url), array('.','.git','.explorateur_php','.index.php'));
 
-
+?><!-- scandir — Liste les fichiers et dossiers dans un dossier // Ici on supprime le '.' qui représente le dossier présent -->
 
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="bootstrap.min.css">    
-    <link rel="stylesheet" href="explorateur.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="explorateur.css" type="text/css" />
     <title>Explorateur</title>
 </head>
 <body>
-<div class="d-flex w100ps h100vh box">
-    <div class=" h100p gauche">
-        <nav>
-        <p class="d-flex justify-content-center w100ps">HTML/CSS</p>            
-            <ul>
-                <li><a href="balise/index.html">BALISE</a></li>                    
-                <li>BOOTSRAP</li>
-                <li>TEMPLATE</li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <p class="d-flex justify-content-center w100ps">JAVASCRIPT</p>
-            
-            <ul>
+    <div class="dispflex width100prc heigh100prc border2pxsolidblack">
+        <!--style="background-color:#ff6a00;"-->
+        <div class="heigh100prc width33prc border2pxsolidblack">
+            <nav>
+                <p class="">HTML/CSS</p>
+                <ul>
+                    <?php
+                    $directory = '../../HTML-CSS/';
+                    $it = new RecursiveDirectoryIterator($directory);
+                    while($it->valid()) {
+                        if (!$it->isDot()) {
+                            if (is_dir($it->key())) {echo '<li data-parent="" data-path="'.$it ->key().'" onclick="exploreMyPath(this.dataset.path);">' . $it->getSubPathName() . "\n</li>";}
+                        }
+                        $it->next();
+                    }
+                    ?>
+                </ul>
 
-                <li>PLUS OU MOINS</li>
-                <li>SPACE INVADERS</li>                
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul> 
-            <p class="d-flex justify-content-center w100ps">PHP</p>            
-            <ul>
-                <li>FORMULAIRE</li>
-                <li>TABLE</li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>    
-        </nav>
+                <p class="">JAVASCRIPT</p>
+                <ul>
+                    <?php
+                    $directory = '../../JAVASCRIPT/';
+                    $it = new RecursiveDirectoryIterator($directory);
+                    while($it->valid()) {
+                        if (!$it->isDot()) {
+                            if (is_dir($it->key())) {echo '<li data-path="'.$it ->key().'" onclick="exploreMyPath(this.dataset.path);">' . $it->getSubPathName() . "\n</li>";}
+                        }
+                        $it->next();
+                    }
+                    ?>
+                </ul>
+                <p class="">PHP</p>
+                <ul>
+                    <?php
+                    $directory = '../../PHP/';
+                    $it = new RecursiveDirectoryIterator($directory);
+                    while($it->valid()) {
+                        if (!$it->isDot()) {
+                            if (is_dir($it->key())) {echo '<li data-path="'.$it ->key().'" onclick="exploreMyPath(this.dataset.path);">' . $it->getSubPathName() . "\n</li>";}
+                        }
+                        $it->next();
+                    }
+                    ?>
+                </ul>
+            </nav>
+        </div>
+        <div id="listDirectories" class="heigh100prc border2pxsolidblack width66prc">
+            <?php
+                    //header('Content-type: text/plain');
+
+                    //$dir_iterator = new RecursiveDirectoryIterator(dirname(__FILE__));
+                    //$iterator = new RecursiveIteratorIterator($dir_iterator);
+                    //foreach ($iterator as $file) {
+                    //    echo $file."\n";
+                    //}
+            ?>
+
+            <?php
+            //$directory = '../';
+
+            //$it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory));
+
+            //while($it->valid()) {
+
+            //    if (!$it->isDot()) {
+            //        echo '<p>SubPathName: ' . $it->getSubPathName() . "\n</p>";
+            //        echo '<p>SubPath:	 ' . $it->getSubPath() . "\n</p>";
+            //        echo '<p>Key:		 ' . $it->key() . "\n\n</p>";
+            //    }
+
+            //    $it->next();
+            //}
+            //************
+            //$directory = '../';
+
+            //$it = new RecursiveDirectoryIterator($directory);
+
+            //while($it->valid()) {
+
+            //    if (!$it->isDot()) {
+
+            //        //echo '<p>SubPathName: ' . $it->getSubPathName() . "\n</p>";
+            //        if (is_dir($it->key())) {echo '<p>SubPathName: ' . $it->getSubPathName() . "\n</p>";}
+            //        //echo '<p>SubPath:	 ' . $it->getSubPath() . "\n</p>";
+            //        //echo '<p>Key:		 ' . $it->key() . "\n\n</p>";
+            //    }
+
+            //    $it->next();
+            //}
+            //***************
+            ?>
+            <!--if (is_dir($dir . $file) && $file != '.' && $file != '..' )-->
+        </div>
     </div>
-    
 
-
-   
-
-
-    <div id="listDirectories">
-       
-
-        <?php foreach($dirs as $dir):?>
-            <?php if (is_dir($base_url.$dir)){?> <!-- is_dir — Indique si le fichier est un dossier -->
-                <?php if ($dir == "..") {?>
-                    <div>
-                        <a href="index.php?dossier=<?= htmlentities ($_GET['dossier'])?><?=$dir?>/"><?=$dir?></a><br>
-                
-                    </div>
-                <?php } else {?>
-                    <div>
-                        <?php if (isset($_GET['dossier'])) {?>
-
-                            <a href="index.php?dossier=<?=$_GET['dossier']?><?=$dir?>/"><?=$dir?></a><br>
-                            
-                        <?php } else {?>
-                            <a href="index.php?dossier=<?=$dir?>/"><?=$dir?></a><br>
-                        <?php }?>
-                    </div>
-                <?php }?>
-            <?php } else {?>
-                <div>
-                    <p><?=$dir;?></p>
-                </div>
-            <?php }?>
-        <?php endforeach;?>
-
-
-         <?php 
-
-
-
-?>
-    </div>
-</div>
- 
-<!-- <script>
+    <!-- <script>
     function ajax_get(url, callback) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
@@ -209,6 +224,8 @@ document.querySelector('body').addEventListener('click', function (event) {
 //je lance la fonction
 ajax_get('index.php', result);
 </script> -->
+
+    <script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>

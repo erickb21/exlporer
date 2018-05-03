@@ -1,39 +1,39 @@
+@import "reset.css";
 
-.w100ps{
+li {padding-left:10px;
+    cursor:pointer;
+}
+
+    li:hover {
+        color:white;
+    }
+
+.dispflex{
+    display:flex;
+}
+
+.width100prc {
     width: 100%;
 }
-.h100vh{
-    height: 100vh;
-}
-.h100p{
-    height: 100%;
-}
-.box{
-    background-color: black;
-    border: 5px rgb(47, 0, 255) solid;
+
+.heigh100prc{
+    height:100%;
 }
 
-.gauche{
-    width: 20%;
-    border: red 5px solid;
-    color: white;
+.width33prc{
+    width:33%;
+    background-color:red;
 }
 
-.droit{
-border: rgb(10, 148, 14) 5px solid;
-color: white;
+.border2pxsolidblack{
+border:2px solid black
 }
 
-p{
-    background-color: rgb(100, 93, 0);
-    padding: 15px;
+.width66prc{
+    width: 66%;
+    background-color: #ff6a00;
 }
 
-a{
-text-decoration: none;
-}
-
-.point{
-font-size: 30px;
-color: chartreuse;
+.directory{
+    background-color:antiquewhite;
 }

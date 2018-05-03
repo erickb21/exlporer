@@ -22,15 +22,18 @@ function returnFiles($pathFiles)
     //$it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($pathFiles));
     $it = new RecursiveDirectoryIterator($pathFiles);
     $toto=$it->key();
-    echo 'parent : ' .dirname($toto);
-    echo '<p onclick="exploreMyFolder(\'' .dirname($toto,2).'\');">retour</p>';
+    echo '<p>chemin : '.strrpos($toto,"/").'<p>';
+    echo '<p>parent v<7.0 : '.left($toto,strrpos($toto,"/")).'<p>';
+    //echo '<p>parent v>7.0: ' .dirname($toto).'</p>';
+    $toto2=left($toto,strrpos($toto,"/"));
+    echo '<p onclick="exploreMyFolder(\'' .$toto2.'\');">retour</p>';
 
     while($it->valid()) {
 
         if (!$it->isDot()) {
 
             //echo '<p>SubPathName: ' . $it->getSubPathName() . "\n</p>";
-            if (is_dir($it->key())) {echo '<p class="directory" data-path="'.$it ->key().'" onclick="exploreMyFolder(this.dataset.path);">dossier : ' . $it->getSubPathName() . "\n</p>";}
+            if (is_dir($it->key())) {echo '<p class="directp>ory" data-path="'.$it ->key().'" onclick="exploreMyFolder(this.dataset.path);">dossier : ' . $it->getSubPathName() . "\n</p>";}
             else {echo '<p class="file">fichier : ' . $it->getSubPathName() . "\n</p>";}
 
             //echo '<p>SubPath:	 ' . $it->getSubPath() . "\n</p>";
@@ -40,6 +43,15 @@ function returnFiles($pathFiles)
     }
 
 }
+
+function left($str, $length) {
+    return substr($str, 0, $length);
+}
+
+function right($str, $length) {
+    return substr($str, -$length);
+}
+
 
 ?>
 <!--if (is_dir($dir . $file) && $file != '.' && $file != '..' )-->
