@@ -33,7 +33,7 @@ function returnFiles($pathFiles)
         if (!$it->isDot()) {
 
             //echo '<p>SubPathName: ' . $it->getSubPathName() . "\n</p>";
-            if (is_dir($it->key())) {echo '<p class="directp>ory" data-path="'.$it ->key().'" onclick="exploreMyFolder(this.dataset.path);">dossier : ' . $it->getSubPathName() . "\n</p>";}
+            if (is_dir($it->key())) {echo '<p class="directory" data-path="'.$it ->key().'" onclick="exploreMyFolder(this.dataset.path);">dossier : ' . $it->getSubPathName() . "\n</p>";}
             else {echo '<p class="file">fichier : ' . $it->getSubPathName() . "\n</p>";}
 
             //echo '<p>SubPath:	 ' . $it->getSubPath() . "\n</p>";

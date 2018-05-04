@@ -123,7 +123,10 @@ function selectionCase() {
 
 function exploreMyPath(myPath) {
     data = "maselection=" + "../" + myPath;
-
+    console.log (myPath);
+    if (myPath == '../../..'){
+        return;
+    }
     exploreajax(data);
     return true
 };
@@ -131,7 +134,10 @@ function exploreMyPath(myPath) {
 function exploreMyFolder(myPath) {
 
     data = "maselection=" + myPath;
-
+    console.log (myPath);
+    if (myPath == '../../..'){
+        return;
+    }
     exploreajax(data);
     return true
 };
