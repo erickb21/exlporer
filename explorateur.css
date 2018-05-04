@@ -1,7 +1,92 @@
 @import "reset.css";
 
-li {padding-left:10px;
-    cursor:pointer;
+
+.htm {
+    background-image: url(img/file_html.png);
+}
+
+.png {
+    background-image: url(img/file_png.png);
+}
+
+.jpg {
+    background-image: url(img/file_jpg.png);
+}
+
+.js {
+    background-image: url(img/file_js.png);
+}
+
+.css {
+    background-image: url(img/file_css.png);
+}
+
+.gif {
+    background-image: url(img/file_other.png);
+}
+
+.docx {
+    background-image: url(img/file_other.png);
+}
+
+.xls {
+    background-image: url(img/file_other.png);
+}
+
+.pdf {
+    background-image: url(img/file_other.png);
+}
+
+.psd {
+    background-image: url(img/file_other.png);
+}
+
+.ai {
+    background-image: url(img/file_other.png);
+}
+
+.xml{
+    background-image: url(img/file_other.png);
+}
+
+.other{
+    background-image: url(img/file_other.png);
+}
+
+
+.path {
+    height: 30px;
+    width: 100%;
+    background-color: white;
+}
+
+.directory {
+    width: 50px;
+    height: 38px;
+    background-image: url(img/file_i.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px 38px;
+}
+.back {
+    width: 48px;
+    height: 48px;
+    background-image: url(img/retour-48x48.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 48px 48px;
+}
+.file {
+    width: 38px;
+    height: 48px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 38px 48px;
+}
+
+li {
+    padding-left: 10px;
+    cursor: pointer;
 }
 
     li:hover {
@@ -31,9 +116,6 @@ border:2px solid black
 
 .width66prc{
     width: 66%;
-    background-color: #ff6a00;
+    background-color: white;
 }
 
-.directory{
-    background-color:antiquewhite;
-}
