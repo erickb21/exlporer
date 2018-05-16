@@ -8,7 +8,7 @@ function exploreajax(dataToSend) {
     //submitMethod = "GET"
     var pageUrl = "./pages/explorer.php";
     syncMethod = true; // Méthode asynchrone
-    syncMethod = false; // Méthode Syncrone
+    //syncMethod = false; // Méthode Syncrone
     //user = "" //nom d'utilisateur as string si "pageUrl" est sécurisée
     //password = "" // mot de passe as string si "pageUrl" est sécurisée
 
@@ -41,63 +41,62 @@ ajaxrequest.onreadystatechange = function () {
 }
 
 function stateComplete() {
-    var tmp = ajaxrequest.responseText //.split(":");
-    //if (typeof (tmp[1]) != "undefined") {
-    //    f.elements["string1_r"].value = tmp[1];
-    //    f.elements["string2_r"].value = tmp[2];
-    //}
-    //for (var i = 0; i < tmp.length; i++) {
-    //alert("stateComplete" + tmp);
 
-    document.getElementById('listDirectories').innerHTML = tmp;
-    //}
-}
+    if (ajaxrequest.status == 200 || ajaxrequest.status == 0) {
+        var tmp = ajaxrequest.responseText;
+        document.getElementById("loader").style.display = "none";
+        document.getElementById('listDirectories').innerHTML = tmp;
+
+    } else { alert("Ajax Error: La connexion avec le serveur est perdue, si le problème persiste veuillez contacter l'administrateur du site");}
+};
 
 function stateInteractive() {
-    var tmp = ajaxrequest.responseText;//.split(":");
-    //if (typeof (tmp[1]) != "undefined") {
-    //    f.elements["string1_r"].value = tmp[1];
-    //    f.elements["string2_r"].value = tmp[2];
+
+    //document.getElementById("loader").style.display = "block";
+    //var tmp = ajaxrequest.responseText;//.split(":");
+    ////if (typeof (tmp[1]) != "undefined") {
+    ////    f.elements["string1_r"].value = tmp[1];
+    ////    f.elements["string2_r"].value = tmp[2];
+    ////}
+    //for (var i = 0; i < tmp.length; i++) {
+    //    //alert("stateInteractive" + tmp[i]);
     //}
-    for (var i = 0; i < tmp.length; i++) {
-        //alert("stateInteractive" + tmp[i]);
-    }
 }
 
 function stateLoaded() {
-    var tmp = ajaxrequest.responseText; //.split(":");
-    //if (typeof (tmp[1]) != "undefined") {
-    //    f.elements["string1_r"].value = tmp[1];
-    //    f.elements["string2_r"].value = tmp[2];
+    //document.getElementById("loader").style.display = "block";
+    //var tmp = ajaxrequest.responseText; //.split(":");
+    ////if (typeof (tmp[1]) != "undefined") {
+    ////    f.elements["string1_r"].value = tmp[1];
+    ////    f.elements["string2_r"].value = tmp[2];
+    ////}
+    //for (var i = 0; i < tmp.length; i++) {
+    //    //alert("stateLoaded" + tmp[i]);
     //}
-    for (var i = 0; i < tmp.length; i++) {
-        //alert("stateLoaded" + tmp[i]);
-    }
 }
 
 function stateLoading() {
-    var tmp = ajaxrequest.responseText; //.split(":");
-    //if (typeof (tmp[1]) != "undefined") {
-    //    f.elements["string1_r"].value = tmp[1];
-    //    f.elements["string2_r"].value = tmp[2];
+    //var tmp = ajaxrequest.responseText; //.split(":");
+    ////if (typeof (tmp[1]) != "undefined") {
+    ////    f.elements["string1_r"].value = tmp[1];
+    ////    f.elements["string2_r"].value = tmp[2];
+    ////}
+    //for (var i = 0; i < tmp.length; i++) {
+    //    //alert("stateLoading" + tmp[i]);
     //}
-    for (var i = 0; i < tmp.length; i++) {
-        //alert("stateLoading" + tmp[i]);
-    }
 }
 
 function stateUninitialized() {
-    var tmp = ajaxrequest.responseText;//.split(":");
-    //if (typeof (tmp[1]) != "undefined") {
-    //    f.elements["string1_r"].value = tmp[1];
-    //    f.elements["string2_r"].value = tmp[2];
+    //document.getElementById("loader").style.display = "block";
+    //var tmp = ajaxrequest.responseText;//.split(":");
+    ////if (typeof (tmp[1]) != "undefined") {
+    ////    f.elements["string1_r"].value = tmp[1];
+    ////    f.elements["string2_r"].value = tmp[2];
+    ////}
+    //for (var i = 0; i < tmp.length; i++) {
+    //    //alert("stateUninitialized" + tmp[i]);
     //}
-    for (var i = 0; i < tmp.length; i++) {
-        //alert("stateUninitialized" + tmp[i]);
-    }
 }
-
-
 
 
 // **************************
@@ -120,15 +119,16 @@ function selectionCase() {
     return true
 };
 
-
 function exploreMyPath(myPath) {
+
     data = "maselection=" + "../" + myPath;
     console.log (myPath);
     if (myPath == '../../..'){
         return;
     }
+    document.getElementById('listDirectories').innerHTML = "<div id='loader' class='myloader'></div>";
     exploreajax(data);
-    return true
+    return true;
 };
 
 function exploreMyFolder(myPath) {
@@ -138,6 +138,7 @@ function exploreMyFolder(myPath) {
     if (myPath == '../../..'){
         return;
     }
+    document.getElementById('listDirectories').innerHTML = "<div id='loader' class='myloader'></div>"
     exploreajax(data);
-    return true
+    return true;
 };

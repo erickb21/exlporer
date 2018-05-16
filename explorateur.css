@@ -1,5 +1,15 @@
 @import "reset.css";
 
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Myriad Pro';
+    font-size:1.6rem;
+}
 
 .htm {
     background-image: url(img/file_html.png);
@@ -49,35 +59,79 @@
     background-image: url(img/file_other.png);
 }
 
+.php{background-image: url(img/file_php.png);}
+
 .other{
     background-image: url(img/file_other.png);
 }
 
-
-.path {
-    height: 30px;
-    width: 100%;
-    background-color: white;
+.padding_10pxall {
+    padding: 10px;
 }
 
+.path {
+    padding-left: 10px;
+    width: 100%;
+    /*background-color: white;*/
+}
+
+.adressbar{
+    width:100%;
+    height:48px;
+display:flex;
+align-content:flex-start;
+align-items:center;
+background-color:darkseagreen;
+}
+
+.txtaligncenter{
+    text-align:center;
+
+}
+
+.repandfile{
+display:flex;
+flex-wrap:wrap;
+align-content:space-around;
+padding:10px;
+font-size:1.2rem;
+
+}
+
+.categorie {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+.marginall{
+    margin:10px;}
+
 .directory {
-    width: 50px;
-    height: 38px;
+    min-width: 50px;
+    height: 48px;
     background-image: url(img/file_i.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 50px 38px;
+    background-size: 50px 48px;
+    cursor:pointer;
 }
 .back {
     width: 48px;
     height: 48px;
     background-image: url(img/retour-48x48.png);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position:  left;
     background-size: 48px 48px;
 }
+
 .file {
-    width: 38px;
+    min-width:38px;
     height: 48px;
     background-repeat: no-repeat;
     background-position: center;
@@ -97,6 +151,11 @@ li {
     display:flex;
 }
 
+.dispflexdirection{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
 .width100prc {
     width: 100%;
 }
@@ -107,15 +166,25 @@ li {
 
 .width33prc{
     width:33%;
-    background-color:red;
+    background-color:#0094ff;
 }
 
 .border2pxsolidblack{
 border:2px solid black
 }
 
-.width66prc{
-    width: 66%;
+.width67prc{
+    width: 67%;
     background-color: white;
+}
+
+.myloader{
+    display:block;
+    width:100%;
+    height:100%;
+    background-image:url(./img/engrenage_007.gif);
+    background-color:black;
+    background-repeat:no-repeat;
+    background-position:center center;
 }
 

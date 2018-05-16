@@ -6,18 +6,13 @@ header('Content-type: text/html; charset=utf8');
 if  (isset ($_POST['maselection'] ))
 {
     $myPath = str_replace('\\','/',$_POST['maselection']).'/';
-
-    echo '<div class="path">PATH : '.$myPath .'</div>';
-
-
-
-
+sleep(1);
     returnFiles($myPath);
 }
 else {echo 'Error';}
 
 function returnFiles($pathFiles)
-{
+{ 
     //$pathFiles = '../';
     //$it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($pathFiles));
     $it = new RecursiveDirectoryIterator($pathFiles);
@@ -26,12 +21,13 @@ function returnFiles($pathFiles)
     //echo '<p>parent v<7.0 : '.left($toto,strrpos($toto,"/")).'<p>';
     //echo '<p>parent v>7.0: ' .dirname($toto).'</p>';
     $toto2=left($toto,strrpos($toto,"/"));
-    echo '<div class="back" onclick="exploreMyFolder(\'' .$toto2.'\');"></div>';
+        echo '<div class="adressbar"><div class="back" onclick="exploreMyFolder(\'' .$toto2.'\');"></div><div class="path">PATH : '.$pathFiles .'</div></div>';
 
+echo '<div class="repandfile">';
     while($it->valid()) {
         if (!$it->isDot()) {
             //echo '<p>SubPathName: ' . $it->getSubPathName() . "\n</p>";
-            if (is_dir($it->key())) {echo '<div class="directory" data-path="'.$it ->key().'" onclick="exploreMyFolder(this.dataset.path);"></div><p>'. $it->getSubPathName().'</p>'  ;}
+            if (is_dir($it->key())) {echo '<div class="txtaligncenter marginall"><div class="directory" data-path="'.$it ->key().'" onclick="exploreMyFolder(this.dataset.path);"></div><p>'. $it->getSubPathName().'</p></div>'  ;}
             else {
 
                 $extention=right($it->getSubPathName(),strlen($it->getSubPathName()) - strrpos($it->getSubPathName(),"."));
@@ -71,13 +67,14 @@ function returnFiles($pathFiles)
                             $maClass="other";
                      endswitch;
 
-                echo '<div data-typefile=' .$extention .' class="file '. $maClass .'"></div><p>' . $it->getSubPathName() . '</p>';
+                echo '<div class="txtaligncenter marginall"><div data-typefile=' .$extention .' class="file '. $maClass .'"></div><p>' . $it->getSubPathName() . '</p></div>';
             }
             //echo '<p>SubPath:	 ' . $it->getSubPath() . "\n</p>";
             //echo '<p>Key:		 ' . $it->key() . "\n\n</p>";
         }
         $it->next();
     }
+    echo '</div>';
 }
 
 function left($str, $length) {
