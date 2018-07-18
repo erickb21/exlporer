@@ -76,6 +76,7 @@ function stateLoaded() {
 }
 
 function stateLoading() {
+    document.getElementById('listDirectories').innerHTML = "<div id='loader' class='myloader'></div>"
     //var tmp = ajaxrequest.responseText; //.split(":");
     ////if (typeof (tmp[1]) != "undefined") {
     ////    f.elements["string1_r"].value = tmp[1];

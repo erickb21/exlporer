@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8" />
@@ -12,10 +12,10 @@
         <!--style="background-color:#ff6a00;"-->
         <div class="heigh100vh width33prc padding_10pxall">
             <nav>
-                <p class="categorie">HTML/CSS</p>
+               <!-- <p class="categorie">HTML/CSS</p>-->
                 <ul>
                     <?php
-                    $directory = '../../HTML-CSS/';
+                    $directory = '../';
                     $it = new RecursiveDirectoryIterator($directory);
                     while($it->valid()) {
                         if (!$it->isDot()) {
@@ -26,7 +26,7 @@
                     ?>
                 </ul>
 
-                <p class="categorie">JAVASCRIPT</p>
+<!--                <p class="categorie">JAVASCRIPT</p>
                 <ul>
                     <?php
                     $directory = '../../JAVASCRIPT/';
@@ -53,7 +53,7 @@
                     ?>
                 </ul>
             </nav>
-        </div>
+        </div>-->
         <div id="listDirectories" class="heigh100vh dispflex dispflexdirection width67prc">
         
             <?php

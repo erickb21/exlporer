@@ -75,6 +75,16 @@ body {
     /*background-color: white;*/
 }
 
+.execindex{
+    cursor:pointer;
+}
+
+    .execindex:hover {
+        box-shadow: 3px 3px 5px blue;
+    }
+
+.txtbold{font-weight:bold;}
+
 .adressbar{
     width:100%;
     height:48px;

@@ -6,7 +6,7 @@ header('Content-type: text/html; charset=utf8');
 if  (isset ($_POST['maselection'] ))
 {
     $myPath = str_replace('\\','/',$_POST['maselection']).'/';
-sleep(1);
+sleep(3);
     returnFiles($myPath);
 }
 else {echo 'Error';}
@@ -21,7 +21,7 @@ function returnFiles($pathFiles)
     //echo '<p>parent v<7.0 : '.left($toto,strrpos($toto,"/")).'<p>';
     //echo '<p>parent v>7.0: ' .dirname($toto).'</p>';
     $toto2=left($toto,strrpos($toto,"/"));
-        echo '<div class="adressbar"><div class="back" onclick="exploreMyFolder(\'' .$toto2.'\');"></div><div class="path">PATH : '.$pathFiles .'</div></div>';
+        echo '<div class="adressbar"><div class="back" onclick="exploreMyFolder(\'' .$toto2.'\');"></div><div class="path">PATH:=>'.realpath($pathFiles) .'\\</div></div>';
 
 echo '<div class="repandfile">';
     while($it->valid()) {
@@ -66,8 +66,22 @@ echo '<div class="repandfile">';
                         default:
                             $maClass="other";
                      endswitch;
+                    
+                     $classFilename = "txtaligncenter marginall";
+                     $exindex = explode(".",$it->getSubPathName());
+                     $indexlink = array("","");
 
-                echo '<div class="txtaligncenter marginall"><div data-typefile=' .$extention .' class="file '. $maClass .'"></div><p>' . $it->getSubPathName() . '</p></div>';
+                     if ($exindex[0]=="index") {
+                        $maClass .= ' execindex ';
+                        $classFilename .=  ' txtbold ';
+                        $indexlink = array('<a href="/mesprojets/'. $pathFiles .$it->getSubPathName().'" target="_blank">','</a>');
+                        //$indexlink = array('<a href="'. $it->getSubPath() .'" target="_blank">','</a>');
+                        }
+                     
+
+
+
+                echo '<div class="'.$classFilename .'">'.$indexlink[0].'<div data-typefile=' .$extention .' class="file '. $maClass .'"></div><p>' . $it->getSubPathName() .'</p>'.$indexlink[1];'</div>';
             }
             //echo '<p>SubPath:	 ' . $it->getSubPath() . "\n</p>";
             //echo '<p>Key:		 ' . $it->key() . "\n\n</p>";
